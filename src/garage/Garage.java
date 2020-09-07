@@ -30,6 +30,7 @@ public class Garage {
         for(Vehicle v: allVehicle){
             if (v.getType().equals(type)) {
                 allVehicle.removeIf(Predicate.isEqual(v));
+                break;
             }
         }
     }
@@ -41,19 +42,12 @@ public class Garage {
     }
     public void fixVehicle(int id){
         for(Vehicle v: allVehicle){
-            switch (v.getType()) {
-                case "motorbike":
-                    System.out.printf("Total Cost for a motorbike is %d.\n", v.getWheelCount() * 200);
-                    break;
-                case "car":
-                    System.out.printf("Total Cost for a car is %d.\n", v.getWheelCount() * 160);
-                    break;
-                case "truck":
-                    System.out.printf("Total Cost for a truck is %d.\n", v.getWheelCount() * 300);
-                    break;
-                default:
-                    System.out.println("Cannot service this kind of vehicle.");
-                    break;
+            if(v.getType().equals("motorbike") && v.getID() == id){
+                System.out.printf("Total Cost for a motorbike is %d.\n", v.getWheelCount() * 200);
+            } else if (v.getType().equals("car") && v.getID() == id) {
+                System.out.printf("Total Cost for a car is %d.\n", v.getWheelCount() * 160);
+            } else if (v.getType().equals("truck") && v.getID() == id) {
+                System.out.printf("Total Cost for a truck is %d.\n", v.getWheelCount() * 300);
             }
         }
     }

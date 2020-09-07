@@ -14,6 +14,7 @@ public class Runner {
 
 		gg.fixVehicle(1);
 		gg.removeVehicle(1);
+		gg.removeVehicle("car");
 
 		gg.removeAllVehicles();
 
