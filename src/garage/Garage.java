@@ -12,6 +12,7 @@ public class Garage {
         allVehicle.add(v);
 
     }
+
     public void removeVehicle(int id){
         for(Vehicle v: allVehicle){
             if(v.getID()==id){
@@ -23,8 +24,16 @@ public class Garage {
                 System.out.println("No entry");
             }
         }
-
     }
+
+    public void removeVehicle(String type){
+        for(Vehicle v: allVehicle){
+            if (v.getType().equals(type)) {
+                allVehicle.removeIf(Predicate.isEqual(v));
+            }
+        }
+    }
+
     public  void removeAllVehicles(){
         allVehicle.clear();
         System.out.println("The Garage is totally empty");
