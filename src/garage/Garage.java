@@ -27,11 +27,16 @@ public class Garage {
     }
 
     public void removeVehicle(String type){
+        boolean removed = false;
         for(Vehicle v: allVehicle){
             if (v.getType().equals(type)) {
                 allVehicle.removeIf(Predicate.isEqual(v));
+                removed = true;
                 break;
             }
+        }
+        if (removed) {
+            removeVehicle(type); //I'm sorry for this
         }
     }
 
@@ -49,6 +54,12 @@ public class Garage {
             } else if (v.getType().equals("truck") && v.getID() == id) {
                 System.out.printf("Total Cost for a truck is %d.\n", v.getWheelCount() * 300);
             }
+        }
+    }
+
+    public void showVehicles() {
+        for (Vehicle v : allVehicle) {
+            System.out.println(v.getName());
         }
     }
 
