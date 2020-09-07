@@ -2,6 +2,7 @@ package garage;
 
 public class Vehicle {
     private String name;
+    protected String type;
     private int wheelCount;
     private double speed;
     private int value;
@@ -13,7 +14,7 @@ public class Vehicle {
         this.wheelCount = wheelCount;
         this.speed = speed;
         this.value = value;
-
+        type = "vehicle";
     }
 
     public void drive(){
@@ -26,5 +27,7 @@ public class Vehicle {
     public int getID(){
         return id;
     }
+    public String getType() { return type; }
+    public String getName() {return name;}
 
 }
