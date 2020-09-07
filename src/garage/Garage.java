@@ -41,8 +41,19 @@ public class Garage {
     }
     public void fixVehicle(int id){
         for(Vehicle v: allVehicle){
-            if(v.getID()==id){
-                System.out.printf("The total wheel %d is %d \n", v.getWheelCount(), v.getWheelCount()*200);
+            switch (v.getType()) {
+                case "motorbike":
+                    System.out.printf("Total Cost for a motorbike is %d.\n", v.getWheelCount() * 200);
+                    break;
+                case "car":
+                    System.out.printf("Total Cost for a car is %d.\n", v.getWheelCount() * 160);
+                    break;
+                case "truck":
+                    System.out.printf("Total Cost for a truck is %d.\n", v.getWheelCount() * 300);
+                    break;
+                default:
+                    System.out.println("Cannot service this kind of vehicle.");
+                    break;
             }
         }
     }
