@@ -3,6 +3,7 @@ package garage;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.function.Predicate;
+import java.util.stream.Stream;
 
 public class Garage {
     List<Vehicle> allVehicle = new ArrayList<Vehicle>();
@@ -25,7 +26,18 @@ public class Garage {
         }
 
     }
+    public void removeSameType(String type){
+
+        //allVehicle.stream().filter(Predicate.isEqual(type));
+        for(Vehicle v: allVehicle){
+            if(v.getType()==type){
+                allVehicle.removeIf(Predicate.isEqual(v));
+                System.out.println("Vehicle removed!");
+            }
+        }
+    }
     public  void removeAllVehicles(){
+        System.out.println(allVehicle.size());
         allVehicle.clear();
         System.out.println("The Garage is totally empty");
 
